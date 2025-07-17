@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanka Srikar | Developer Portfolio</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Custom Styles & Font Configuration -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f8fc; /* A slightly cooler background */
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #38bdf8, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .skill-card:hover .skill-icon {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-white/90 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-3xl font-bold gradient-text">Srikar.</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-slate-600 hover:text-sky-500 transition-colors">About</a>
+                <a href="#skills" class="text-slate-600 hover:text-sky-500 transition-colors">Skills</a>
+                <a href="#projects" class="text-slate-600 hover:text-sky-500 transition-colors">Projects</a>
+                <a href="#contact" class="bg-slate-800 text-white font-medium py-2 px-5 rounded-full hover:bg-slate-900 transition-all duration-300">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-2xl text-slate-800">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
+            <a href="#about" class="block py-3 px-6 text-center hover:bg-slate-50">About</a>
+            <a href="#skills" class="block py-3 px-6 text-center hover:bg-slate-50">Skills</a>
+            <a href="#projects" class="block py-3 px-6 text-center hover:bg-slate-50">Projects</a>
+            <a href="#contact" class="block py-3 px-6 text-center hover:bg-slate-50">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 reveal">Sanka Saran Sai Krishna Srikar</h1>
+                    <p class="mt-4 text-xl md:text-2xl gradient-text font-semibold reveal" style="transition-delay: 150ms;">Frontend Developer | Python Enthusiast</p>
+                    <div class="mt-10 flex justify-center gap-4 reveal" style="transition-delay: 300ms;">
+                        <a href="mailto:sankasrikar@gmail.com" class="bg-sky-500 text-white font-semibold py-3 px-8 rounded-full hover:bg-sky-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-sky-300">
+                            Hire Me
+                        </a>
+                        <a href="SANKA SARAN SAI KRISHNA SRIKAR RESUME.pdf" download="SANKA_SRIKAR_RESUME.pdf" class="bg-white text-slate-700 font-semibold py-3 px-8 rounded-full hover:bg-slate-100 transition-all duration-300 transform hover:scale-105 shadow-lg border border-slate-200">
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center reveal">
+                    <h2 class="text-4xl font-bold text-slate-800 mb-4">About Me</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed">
+                        I am a passionate and driven final-year B.Tech Computer Science student. With a strong focus on learning modern technologies like <span class="font-semibold text-sky-600">Angular</span>, <span class="font-semibold text-sky-600">Python</span>, and <span class="font-semibold text-sky-600">Data Structures & Algorithms</span>, I excel at building responsive frontend UIs and robust backend APIs. I am deeply enthusiastic about creating real-world projects that solve practical problems and deliver exceptional user experiences.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold text-slate-800 mb-16 reveal">My Tech Stack</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8">
+                    <!-- Skill Card -->
+                    <div class="skill-card flex flex-col items-center p-6 bg-slate-50 rounded-xl shadow-md hover:shadow-sky-100 hover:-translate-y-2 transition-all duration-300 reveal">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="h-16 w-16 skill-icon transition-transform duration-300"/>
+                        <p class="mt-4 font-semibold">HTML5</p>
+                    </div>
+                    <div class="skill-card flex flex-col items-center p-6 bg-slate-50 rounded-xl shadow-md hover:shadow-sky-100 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 100ms;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="h-16 w-16 skill-icon transition-transform duration-300"/>
+                        <p class="mt-4 font-semibold">CSS3</p>
+                    </div>
+                    <div class="skill-card flex flex-col items-center p-6 bg-slate-50 rounded-xl shadow-md hover:shadow-sky-100 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 200ms;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="h-16 w-16 skill-icon transition-transform duration-300"/>
+                        <p class="mt-4 font-semibold">JavaScript</p>
+                    </div>
+                    <div class="skill-card flex flex-col items-center p-6 bg-slate-50 rounded-xl shadow-md hover:shadow-sky-100 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 300ms;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular" class="h-16 w-16 skill-icon transition-transform duration-300"/>
+                        <p class="mt-4 font-semibold">Angular</p>
+                    </div>
+                    <div class="skill-card flex flex-col items-center p-6 bg-slate-50 rounded-xl shadow-md hover:shadow-sky-100 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 400ms;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="h-16 w-16 skill-icon transition-transform duration-300"/>
+                        <p class="mt-4 font-semibold">Python</p>
+                    </div>
+                    <div class="skill-card flex flex-col items-center p-6 bg-slate-50 rounded-xl shadow-md hover:shadow-sky-100 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 500ms;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="Tailwind CSS" class="h-16 w-16 skill-icon transition-transform duration-300"/>
+                        <p class="mt-4 font-semibold">Tailwind CSS</p>
+                    </div>
+                    <div class="skill-card flex flex-col items-center p-6 bg-slate-50 rounded-xl shadow-md hover:shadow-sky-100 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 600ms;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="h-16 w-16 skill-icon transition-transform duration-300"/>
+                        <p class="mt-4 font-semibold">Git</p>
+                    </div>
+                    <div class="skill-card flex flex-col items-center p-6 bg-slate-50 rounded-xl shadow-md hover:shadow-sky-100 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 700ms;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="h-16 w-16 skill-icon transition-transform duration-300"/>
+                        <p class="mt-4 font-semibold">MongoDB</p>
+                    </div>
+                    <div class="skill-card flex flex-col items-center p-6 bg-slate-50 rounded-xl shadow-md hover:shadow-sky-100 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 800ms;">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="h-16 w-16 skill-icon transition-transform duration-300"/>
+                        <p class="mt-4 font-semibold">MySQL</p>
+                    </div>
+                    <div class="skill-card flex flex-col items-center p-6 bg-slate-50 rounded-xl shadow-md hover:shadow-sky-100 hover:-translate-y-2 transition-all duration-300 reveal" style="transition-delay: 900ms;">
+                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg" alt="Socket.IO" class="h-16 w-16 skill-icon transition-transform duration-300"/>
+                        <p class="mt-4 font-semibold">Socket.IO</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-slate-800 text-center mb-16 reveal">My Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    
+                    <!-- Project Card 1: Final Year Project -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl hover:shadow-sky-100 overflow-hidden transform hover:-translate-y-2 transition-all duration-300 reveal flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold text-slate-800">Virtual Classroom</h3>
+                                <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full">Final Year Project</span>
+                            </div>
+                            <p class="text-slate-600 mb-4 text-sm">My ongoing final year project: an advanced platform for online learning with real-time video, messaging, and AI-powered features for an engaging, automated classroom experience.</p>
+                            <div class="mb-6">
+                                <span class="inline-block bg-sky-100 text-sky-800 text-xs font-semibold mr-2 mb-2 px-2.5 py-1 rounded-full">WebRTC</span>
+                                <span class="inline-block bg-sky-100 text-sky-800 text-xs font-semibold mr-2 mb-2 px-2.5 py-1 rounded-full">Socket.io</span>
+                                <span class="inline-block bg-sky-100 text-sky-800 text-xs font-semibold mr-2 mb-2 px-2.5 py-1 rounded-full">AI/ML</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-slate-50 flex gap-4">
+                            <a href="https://github.com/Srikarsanka" target="_blank" class="w-full text-center bg-slate-700 text-white py-2.5 rounded-lg hover:bg-slate-800 transition-colors font-semibold text-sm">View Code</a>
+                            <button disabled class="w-full text-center bg-slate-200 text-slate-500 py-2.5 rounded-lg cursor-not-allowed font-semibold text-sm">In Progress</button>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2: UDBHAVA -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl hover:shadow-sky-100 overflow-hidden transform hover:-translate-y-2 transition-all duration-300 reveal flex flex-col" style="transition-delay: 150ms;">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">UDBHAVA E-Commerce</h3>
+                            <p class="text-slate-600 mb-4 text-sm">A responsive e-commerce site focused on promoting Indian handicrafts. Designed with a visually appealing and user-friendly UI to enhance the shopping experience.</p>
+                            <div class="mb-6">
+                                <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold mr-2 mb-2 px-2.5 py-1 rounded-full">HTML</span>
+                                <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold mr-2 mb-2 px-2.5 py-1 rounded-full">CSS</span>
+                                <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold mr-2 mb-2 px-2.5 py-1 rounded-full">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-slate-50 flex gap-4">
+                           <a href="https://github.com/Srikarsanka" target="_blank" class="w-full text-center bg-slate-700 text-white py-2.5 rounded-lg hover:bg-slate-800 transition-colors font-semibold text-sm">View Code</a>
+                           <a href="https://udbhava.vercel.app/" target="_blank" class="w-full text-center bg-sky-500 text-white py-2.5 rounded-lg hover:bg-sky-600 transition-colors font-semibold text-sm">Live Demo</a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3: Hospital Management -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl hover:shadow-sky-100 overflow-hidden transform hover:-translate-y-2 transition-all duration-300 reveal flex flex-col" style="transition-delay: 300ms;">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Hospital Patient Management</h3>
+                            <p class="text-slate-600 mb-4 text-sm">A desktop(1500px -1700px) -first hospital portal for managing patient records and doctor appointments, featuring intuitive dashboards and secure form validation.</p>
+                            <div class="mb-6">
+                                <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 mb-2 px-2.5 py-1 rounded-full">HTML/CSS</span>
+                                <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 mb-2 px-2.5 py-1 rounded-full">JavaScript</span>
+                                <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 mb-2 px-2.5 py-1 rounded-full">Tailwind CSS</span>
+                            </div>
+                        </div>
+                         <div class="p-6 bg-slate-50 flex gap-4">
+                           <a href="https://github.com/Srikarsanka" target="_blank" class="w-full text-center bg-slate-700 text-white py-2.5 rounded-lg hover:bg-slate-800 transition-colors font-semibold text-sm">View Code</a>
+                           <a href="https://basavatarakamhospitalwebsite.vercel.app/" target="_blank" class="w-full text-center bg-sky-500 text-white py-2.5 rounded-lg hover:bg-sky-600 transition-colors font-semibold text-sm">Live Demo</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                 <div class="max-w-2xl mx-auto text-center reveal">
+                    <h2 class="text-4xl font-bold text-slate-800 mb-4">Get In Touch</h2>
+                    <p class="text-slate-600 mb-8">
+                        I'm currently looking for new opportunities. Whether you have a question or just want to say hi, feel free to reach out. I'll get back to you!
+                    </p>
+                    <form id="contact-form" class="space-y-6">
+                        <!-- Your live Web3Forms Access Key is now integrated -->
+                        <input type="hidden" name="access_key" value="a59f1daa-b5fe-4abe-a42c-9d1bcee8afa2">
+                        
+                        <input type="text" name="name" placeholder="Your Name" required class="w-full p-4 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 transition">
+                        <input type="email" name="email" placeholder="Your Email" required class="w-full p-4 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 transition">
+                        <input type="tel" name="phone" placeholder="Your Phone Number (Optional)" class="w-full p-4 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 transition">
+                        <textarea name="message" placeholder="Your Message" rows="5" required class="w-full p-4 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 transition"></textarea>
+                        <button id="submit-button" type="submit" class="w-full bg-slate-800 text-white font-semibold py-4 px-8 rounded-lg hover:bg-slate-900 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            Send Message
+                        </button>
+                    </form>
+                    <div id="form-result" class="mt-6 text-lg"></div>
+                 </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-10">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="https://github.com/Srikarsanka" target="_blank" class="hover:text-white transition-colors">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a href="https://linkedin.com/in/srikar-sanka-987104294" target="_blank" class="hover:text-white transition-colors">
+                    <i class="fab fa-linkedin text-2xl"></i>
+                </a>
+                <a href="mailto:sankasrikar@gmail.com" class="hover:text-white transition-colors">
+                    <i class="fas fa-envelope text-2xl"></i>
+                </a>
+            </div>
+            <p>&copy; 2025 Sanka Saran Sai Krishna Srikar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for animations and mobile menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            document.querySelectorAll('#mobile-menu a, nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!link.href.includes("#contact")) // keep menu open for contact button
+                        mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Scroll Reveal Animation
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => observer.observe(el));
+
+            // Header Shadow on Scroll
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('shadow-lg', window.scrollY > 50);
+            });
+
+            // Contact Form Submission
+            const form = document.getElementById('contact-form');
+            const resultDiv = document.getElementById('form-result');
+            const submitButton = document.getElementById('submit-button');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                const object = Object.fromEntries(formData);
+                const json = JSON.stringify(object);
+                
+                resultDiv.innerHTML = "Sending...";
+                submitButton.disabled = true;
+
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                .then(async (response) => {
+                    let jsonResponse = await response.json();
+                    if (response.status == 200) {
+                        resultDiv.innerHTML = `<p class="text-green-500">${jsonResponse.message}</p>`;
+                    } else {
+                        console.log(response);
+                        resultDiv.innerHTML = `<p class="text-red-500">${jsonResponse.message}</p>`;
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    resultDiv.innerHTML = '<p class="text-red-500">Something went wrong!</p>';
+                })
+                .then(function() {
+                    form.reset();
+                    submitButton.disabled = false;
+                    setTimeout(() => {
+                        resultDiv.innerHTML = '';
+                    }, 5000);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
