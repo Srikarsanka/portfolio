@@ -1,46 +1,54 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sanka Srikar | Full Stack Developer</title>
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
+
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
     <style>
         :root {
-            --deep-blue: #000a45;
-            --vibrant-orange: #ff6b35;
-            --light-accent: #4cc9f0;
+            /* Blue Monochromatic Palette */
+            --deep-blue: #0a1128;
+            --bright-blue: #1e90ff;
+            --light-blue: #4dabf7;
+            --sky-blue: #74c0fc;
+            --navy-blue: #1864ab;
             --bg-light: #f8faff;
             --card-white: #ffffff;
         }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-light);
             color: #333;
             overflow-x: hidden;
         }
-        
+
+        /* ========== VIBRANT HERO SECTION ========== */
         .hero-bg {
-            background: linear-gradient(135deg, #f8faff 0%, #e6f0ff 100%);
+            background: linear-gradient(135deg, #f8faff 0%, #e6f0ff 50%, #fff0f5 100%);
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
         }
-        
+
         .hero-bg::before {
             content: '';
             position: absolute;
@@ -48,56 +56,67 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(0, 10, 69, 0.03) 1px, transparent 1px);
+            background: radial-gradient(circle, rgba(30, 144, 255, 0.08) 1px, transparent 1px);
             background-size: 50px 50px;
             animation: float-grid 20s linear infinite;
         }
-        
+
         @keyframes float-grid {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(-50px, -50px) rotate(0.5deg); }
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50px, -50px) rotate(0.5deg);
+            }
         }
-        
+
         .floating-element {
             animation: floating 6s ease-in-out infinite;
         }
-        
+
         @keyframes floating {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(0.5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(0.5deg);
+            }
         }
-        
+
         .typewriter {
             overflow: hidden;
             white-space: nowrap;
             animation: typing 3.5s steps(40, end);
         }
-        
+
         @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
         }
-        
+
         .gradient-text {
-            background: linear-gradient(90deg, var(--deep-blue), var(--vibrant-orange));
+            background: linear-gradient(90deg, var(--deep-blue), var(--bright-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .bg-gradient-card {
             background: linear-gradient(145deg, #ffffff, #f0f4ff);
             border: 1px solid rgba(0, 10, 69, 0.1);
             box-shadow: 0 10px 30px rgba(0, 10, 69, 0.08);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: none;
         }
-        
-        .bg-gradient-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 10, 69, 0.15);
-            border-color: rgba(255, 107, 53, 0.3);
-        }
-        
+
         .skill-progress {
             height: 8px;
             background: linear-gradient(90deg, var(--deep-blue), var(--vibrant-orange));
@@ -105,7 +124,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .skill-progress::after {
             content: '';
             position: absolute;
@@ -116,49 +135,79 @@
             background: linear-gradient(90deg, var(--vibrant-orange), var(--light-accent));
             animation: progress-load 1.5s ease-out forwards;
         }
-        
+
         @keyframes progress-load {
-            to { width: var(--progress-width); }
+            to {
+                width: var(--progress-width);
+            }
         }
-        
+
         .pulse-dot {
-            width: 12px;
-            height: 12px;
-            background: var(--vibrant-orange);
+            width: 10px;
+            height: 10px;
+            background: var(--accent-subtle);
             border-radius: 50%;
-            animation: pulse 2s infinite;
+            animation: pulse 2s ease-in-out infinite;
         }
-        
+
         @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.5; }
-            100% { transform: scale(1); opacity: 1; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.3);
+                opacity: 0.6;
+            }
+
         }
-        
+
+        /* ========== TIMELINE - ELEGANT & MINIMAL ========== */
         .timeline-dot {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             background: white;
-            border: 3px solid var(--vibrant-orange);
+            border: 3px solid var(--deep-blue);
             border-radius: 50%;
             position: relative;
             z-index: 2;
+            transition: all 0.3s ease;
         }
-        
+
+        .timeline-dot:hover {
+            transform: scale(1.2);
+            border-color: var(--accent-subtle);
+        }
+
         .timeline-line {
             width: 2px;
             height: 100%;
-            background: linear-gradient(to bottom, var(--vibrant-orange), var(--deep-blue));
+            background: linear-gradient(to bottom, var(--deep-blue) 0%, #E5E7EB 100%);
             position: absolute;
-            left: 9px;
-            top: 20px;
+            left: 7px;
+            top: 16px;
         }
-        
+
+        /* Timeline Card Reveal */
+        .timeline-card {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .timeline-card.aos-animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
         .hologram-effect {
             position: relative;
             overflow: hidden;
         }
-        
+
         .hologram-effect::before {
             content: '';
             position: absolute;
@@ -166,20 +215,23 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent 30%,
-                rgba(76, 201, 240, 0.1) 50%,
-                transparent 70%
-            );
+            background: linear-gradient(45deg,
+                    transparent 30%,
+                    rgba(76, 201, 240, 0.1) 50%,
+                    transparent 70%);
             animation: hologram 3s linear infinite;
         }
-        
+
         @keyframes hologram {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
         }
-        
+
         .code-bg {
             background: linear-gradient(45deg, #000a45 0%, #1a237e 100%);
             color: white;
@@ -189,7 +241,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .code-bg::before {
             content: '>';
             position: absolute;
@@ -199,25 +251,34 @@
             font-size: 24px;
             animation: blink 1s infinite;
         }
-        
+
         @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
         }
-        
+
+        /* ========== BUTTONS - VIBRANT BLUE ========== */
         .btn-glow {
-            background: linear-gradient(90deg, var(--deep-blue), var(--vibrant-orange));
+            background: linear-gradient(135deg, var(--navy-blue), var(--bright-blue));
             color: white;
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
         }
-        
+
         .btn-glow:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(74, 171, 247, 0.5);
         }
-        
+
         .btn-glow::after {
             content: '';
             position: absolute;
@@ -229,25 +290,370 @@
             transform: rotate(30deg);
             transition: all 0.5s ease;
         }
-        
+
         .btn-glow:hover::after {
             left: 140%;
         }
+
+        /* ========== PROJECTS - FAANG STYLE ========== */
+        .project-featured {
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-featured:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: #D1D5DB;
+        }
+
+        .project-card-minimal {
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card-minimal:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .project-accent-bar {
+            width: 4px;
+            height: 48px;
+            background: var(--deep-blue);
+            border-radius: 2px;
+        }
+
+        /* ========== VIDEO/IMAGE LAYERING SYSTEM ========== */
+        .project-media-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            aspect-ratio: 16 / 9;
+            background: #f6f8fa;
+        }
+
+        .project-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 1;
+            transform: scale(1);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+
+        .project-video {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transform: scale(1.05);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2;
+        }
+
+        .project-media-container:hover .project-image {
+            opacity: 0.2;
+            transform: scale(1.08);
+        }
+
+        .project-media-container:hover .project-video {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ========== TIMELINE LINE ANIMATION ========== */
+        .timeline-line {
+            transform-origin: top;
+            animation: timeline-draw 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes timeline-draw {
+            from {
+                transform: scaleY(0);
+            }
+
+            to {
+                transform: scaleY(1);
+            }
+        }
+
+        .timeline-dot {
+            animation: dot-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 0.6s;
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        @keyframes dot-appear {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ========== ENHANCED PROJECT CARDS ========== */
+        .project-featured {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            border: 1px solid #e1e4e8;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e90ff, #8b5cf6);
+        }
+
+        .project-featured:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(30, 144, 255, 0.15);
+            border-color: rgba(30, 144, 255, 0.3);
+        }
+
+        .project-card-minimal {
+            background: linear-gradient(135deg, #ffffff 0%, #fafbff 100%);
+            border: 1px solid #e1e4e8;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .project-card-minimal:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(30, 144, 255, 0.12);
+            border-color: rgba(30, 144, 255, 0.4);
+        }
+
+        /* ========== FAANG-STYLE PROJECTS ========== */
+        .faang-project-card {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (min-width: 1024px) {
+            .faang-project-card {
+                grid-template-columns: 3fr 2fr;
+                align-items: center;
+            }
+
+            .faang-project-card:nth-child(even) {
+                grid-template-columns: 2fr 3fr;
+            }
+
+            .faang-project-card:nth-child(even) .faang-visual-container {
+                order: 2;
+            }
+
+            .faang-project-card:nth-child(even) .faang-content-block {
+                order: 1;
+            }
+        }
+
+        .faang-visual-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            border-radius: 1rem;
+            overflow: hidden;
+            background: #f6f8fa;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .faang-project-card:hover .faang-visual-container {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .faang-project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .faang-project-card:hover .faang-project-image {
+            transform: scale(1.05);
+            filter: blur(4px) brightness(0.7);
+        }
+
+        .faang-project-video,
+        .faang-image-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .faang-project-card:hover .faang-project-video,
+        .faang-project-card:hover .faang-image-carousel {
+            opacity: 1;
+        }
+
+        .faang-image-carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .faang-content-block {
+            padding: 1rem 0;
+        }
+
+        .faang-project-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0a1128;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .faang-project-description {
+            font-size: 1.125rem;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+        }
+
+        .faang-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .faang-tech-stack span {
+            font-size: 0.875rem;
+            color: #6b7280;
+            padding: 0.375rem 0.875rem;
+            background: #f3f4f6;
+            border-radius: 0.375rem;
+            font-weight: 500;
+        }
+
+        .faang-project-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .faang-link {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0a1128;
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .faang-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1e90ff;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .faang-link:hover {
+            color: #1e90ff;
+        }
+
+        .faang-link:hover::after {
+            width: 100%;
+        }
+
+        .faang-arrow {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .faang-link:hover .faang-arrow {
+            transform: translateX(4px);
+        }
+
+        /* ========== SMOOTH ENTRANCE ANIMATIONS ========== */
+        .fade-up-entrance {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fade-up {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-600 {
+            animation-delay: 0.6s;
+        }
     </style>
 </head>
+
 <body class="overflow-x-hidden">
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-lg shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="text-2xl font-bold gradient-text font-montserrat tracking-tight">
-                SRIKAR<span class="text-vibrant-orange">.</span>
+                SRIKAR<span class="text-gray-400">.</span>
             </a>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#about" class="text-gray-700 hover:text-orange-500 transition-colors duration-300 font-medium">About</a>
-                <a href="#skills" class="text-gray-700 hover:text-orange-500 transition-colors duration-300 font-medium">Skills</a>
-                <a href="#experience" class="text-gray-700 hover:text-orange-500 transition-colors duration-300 font-medium">Experience</a>
-                <a href="#projects" class="text-gray-700 hover:text-orange-500 transition-colors duration-300 font-medium">Projects</a>
+                <a href="#about"
+                    class="text-gray-700 hover:text-blue-500 transition-colors duration-300 font-medium">About</a>
+                <a href="#skills"
+                    class="text-gray-700 hover:text-blue-500 transition-colors duration-300 font-medium">Skills</a>
+                <a href="#experience"
+                    class="text-gray-700 hover:text-blue-500 transition-colors duration-300 font-medium">Experience</a>
+                <a href="#projects"
+                    class="text-gray-700 hover:text-blue-500 transition-colors duration-300 font-medium">Projects</a>
                 <a href="#contact" class="btn-glow px-6 py-2.5 rounded-full font-semibold">Contact</a>
             </div>
             <button id="menuBtn" class="md:hidden text-2xl text-deep-blue">
@@ -264,37 +670,41 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - VIBRANT -->
     <section id="home" class="hero-bg min-h-screen flex items-center pt-20">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="relative">
-                    <div class="floating-element absolute -top-10 -left-10 w-40 h-40 bg-gradient-to-r from-blue-100 to-orange-100 rounded-full opacity-50 blur-xl"></div>
-                    <div class="floating-element absolute -bottom-10 -right-10 w-60 h-60 bg-gradient-to-r from-orange-100 to-blue-100 rounded-full opacity-30 blur-xl" style="animation-delay: 1s;"></div>
-                    
+                    <div
+                        class="floating-element absolute -top-10 -left-10 w-40 h-40 bg-gradient-to-r from-blue-100 to-blue-200 rounded-full opacity-50 blur-xl">
+                    </div>
+                    <div class="floating-element absolute -bottom-10 -right-10 w-60 h-60 bg-gradient-to-r from-blue-200 to-blue-300 rounded-full opacity-30 blur-xl"
+                        style="animation-delay: 1s;"></div>
+
                     <div data-aos="fade-right" data-aos-duration="1000">
                         <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
                             <span class="text-deep-blue">SANKA</span><br>
-                            <span class="text-vibrant-orange">SRIKAR</span>
+                            <span class="text-blue-500">SRIKAR</span>
                         </h1>
                         <div class="typewriter text-2xl md:text-3xl font-semibold mb-8 text-gray-700">
                             Full Stack Developer
                         </div>
                         <p class="text-lg text-gray-600 mb-10 leading-relaxed">
-                            Crafting intuitive interfaces & robust APIs with passion. 
+                            Crafting intuitive interfaces & robust APIs with passion.
                             Transforming complex problems into elegant digital solutions.
                         </p>
                         <div class="flex flex-wrap gap-4">
                             <a href="#contact" class="btn-glow px-8 py-3.5 rounded-full text-lg font-semibold">
                                 <i class="fas fa-rocket mr-2"></i>Start Project
                             </a>
-                            <a href="SIST-BE CSE - 42111148 - SANKA SARAN SAI KRISHNA SRIKAR RESUME.pdf" download class="border-2 border-deep-blue text-deep-blue px-8 py-3.5 rounded-full text-lg font-semibold hover:bg-deep-blue hover:text-white transition-all duration-300">
+                            <a href="SIST-BE CSE - 42111148 - SANKA SARAN SAI KRISHNA SRIKAR RESUME.pdf" download
+                                class="border-2 border-deep-blue text-deep-blue px-8 py-3.5 rounded-full text-lg font-semibold hover:bg-deep-blue hover:text-white transition-all duration-300">
                                 <i class="fas fa-download mr-2"></i>Download Resume
                             </a>
                         </div>
                     </div>
                 </div>
-                
+
                 <div data-aos="fade-left" data-aos-duration="1000" class="relative">
                     <div class="bg-gradient-card rounded-3xl p-8 relative z-10">
                         <div class="flex items-center mb-8">
@@ -310,14 +720,16 @@
                                 </div>
                             </div>
                             <div class="flex items-center">
-                                <div class="w-3 h-3 bg-blue-500 rounded-full mr-4 animate-pulse" style="animation-delay: 0.5s;"></div>
+                                <div class="w-3 h-3 bg-blue-500 rounded-full mr-4 animate-pulse"
+                                    style="animation-delay: 0.5s;"></div>
                                 <div>
                                     <p class="font-semibold text-gray-800">SaaS Platform Development</p>
                                     <p class="text-gray-600 text-sm">Building HR Management System</p>
                                 </div>
                             </div>
                             <div class="flex items-center">
-                                <div class="w-3 h-3 bg-orange-500 rounded-full mr-4 animate-pulse" style="animation-delay: 1s;"></div>
+                                <div class="w-3 h-3 bg-orange-500 rounded-full mr-4 animate-pulse"
+                                    style="animation-delay: 1s;"></div>
                                 <div>
                                     <p class="font-semibold text-gray-800">Final Year Project</p>
                                     <p class="text-gray-600 text-sm">AI Powered Virtual Classroom</p>
@@ -325,15 +737,18 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Floating Tech Icons -->
-                    <div class="absolute -top-6 -right-6 w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center floating-element" style="animation-delay: 0.2s;">
+                    <div class="absolute -top-6 -right-6 w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center floating-element"
+                        style="animation-delay: 0.2s;">
                         <i class="fab fa-angular text-3xl text-red-500"></i>
                     </div>
-                    <div class="absolute -bottom-6 -left-6 w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center floating-element" style="animation-delay: 0.4s;">
+                    <div class="absolute -bottom-6 -left-6 w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center floating-element"
+                        style="animation-delay: 0.4s;">
                         <i class="fab fa-node-js text-3xl text-green-500"></i>
                     </div>
-                    <div class="absolute top-1/2 -right-10 w-14 h-14 bg-white rounded-2xl shadow-lg flex items-center justify-center floating-element" style="animation-delay: 0.6s;">
+                    <div class="absolute top-1/2 -right-10 w-14 h-14 bg-white rounded-2xl shadow-lg flex items-center justify-center floating-element"
+                        style="animation-delay: 0.6s;">
                         <i class="fab fa-python text-3xl text-blue-500"></i>
                     </div>
                 </div>
@@ -349,38 +764,47 @@
                     <span class="gradient-text">About Me</span>
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Passionate developer crafting digital experiences that blend technical precision with emotional engagement
+                    Passionate developer crafting digital experiences that blend technical precision with emotional
+                    engagement
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div data-aos="zoom-in" data-aos-duration="1000">
                     <div class="code-bg rounded-2xl p-8">
                         <div class="mb-4">
-                            <span class="text-green-400">const</span> 
-                            <span class="text-blue-400">developer</span> 
+                            <span class="text-green-400">const</span>
+                            <span class="text-blue-400">developer</span>
                             <span class="text-white">= {</span>
                         </div>
                         <div class="ml-6">
-                            <div><span class="text-yellow-400">name</span>: <span class="text-green-400">'Sanka Srikar'</span>,</div>
-                            <div><span class="text-yellow-400">role</span>: <span class="text-green-400">'Full Stack Developer'</span>,</div>
-                            <div><span class="text-yellow-400">education</span>: <span class="text-green-400">'BE CSE @ Sathyabama'</span>,</div>
-                            <div><span class="text-yellow-400">passion</span>: <span class="text-green-400">'Creating Impactful Solutions'</span>,</div>
-                            <div><span class="text-yellow-400">status</span>: <span class="text-orange-400">'Building the Future'</span></div>
+                            <div><span class="text-yellow-400">name</span>: <span class="text-green-400">'Sanka
+                                    Srikar'</span>,</div>
+                            <div><span class="text-yellow-400">role</span>: <span class="text-green-400">'Full Stack
+                                    Developer'</span>,</div>
+                            <div><span class="text-yellow-400">education</span>: <span class="text-green-400">'BE CSE @
+                                    Sathyabama'</span>,</div>
+                            <div><span class="text-yellow-400">passion</span>: <span class="text-green-400">'Creating
+                                    Impactful Solutions'</span>,</div>
+                            <div><span class="text-yellow-400">status</span>: <span class="text-orange-400">'Building
+                                    the Future'</span></div>
                         </div>
                         <div class="mt-4"><span class="text-white">};</span></div>
                     </div>
                 </div>
-                
+
                 <div data-aos="fade-left" data-aos-duration="1000">
                     <h3 class="text-3xl font-bold text-deep-blue mb-6">My Journey</h3>
                     <p class="text-gray-700 mb-6 leading-relaxed">
-                        I'm a final-year Computer Science student at Sathyabama Institute, with hands-on experience in modern web technologies. My passion lies in building applications that not only function flawlessly but also create meaningful user experiences.
+                        I'm a final-year Computer Science student at Sathyabama Institute, with hands-on experience in
+                        modern web technologies. My passion lies in building applications that not only function
+                        flawlessly but also create meaningful user experiences.
                     </p>
                     <p class="text-gray-700 mb-8 leading-relaxed">
-                        Currently working on a SaaS HR Management System at Innayam Innovations while completing my final year project - an AI-powered Virtual Classroom platform.
+                        Currently working on a SaaS HR Management System at Innayam Innovations while completing my
+                        final year project - an AI-powered Virtual Classroom platform.
                     </p>
-                    
+
                     <div class="grid grid-cols-2 gap-4">
                         <div class="text-center p-6 bg-gradient-card rounded-xl">
                             <div class="text-3xl font-bold text-deep-blue mb-2">4+</div>
@@ -407,7 +831,7 @@
                     Mastery across the full stack development spectrum
                 </p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Frontend Skills -->
                 <div data-aos="flip-left" data-aos-duration="800" class="bg-gradient-card p-8 rounded-2xl">
@@ -446,9 +870,10 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Backend Skills -->
-                <div data-aos="flip-left" data-aos-duration="800" data-aos-delay="100" class="bg-gradient-card p-8 rounded-2xl">
+                <div data-aos="flip-left" data-aos-duration="800" data-aos-delay="100"
+                    class="bg-gradient-card p-8 rounded-2xl">
                     <div class="text-center mb-8">
                         <i class="fas fa-server text-4xl text-vibrant-orange mb-4"></i>
                         <h3 class="text-2xl font-bold text-deep-blue">Backend</h3>
@@ -484,9 +909,10 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Database Skills -->
-                <div data-aos="flip-left" data-aos-duration="800" data-aos-delay="200" class="bg-gradient-card p-8 rounded-2xl">
+                <div data-aos="flip-left" data-aos-duration="800" data-aos-delay="200"
+                    class="bg-gradient-card p-8 rounded-2xl">
                     <div class="text-center mb-8">
                         <i class="fas fa-database text-4xl text-light-accent mb-4"></i>
                         <h3 class="text-2xl font-bold text-deep-blue">Databases</h3>
@@ -506,13 +932,14 @@
                             </div>
                             <div class="skill-progress" style="--progress-width: 85%"></div>
                         </div>
-                    
-                           
+
+
                     </div>
                 </div>
-                
+
                 <!-- Other Skills -->
-                <div data-aos="flip-left" data-aos-duration="800" data-aos-delay="300" class="bg-gradient-card p-8 rounded-2xl">
+                <div data-aos="flip-left" data-aos-duration="800" data-aos-delay="300"
+                    class="bg-gradient-card p-8 rounded-2xl">
                     <div class="text-center mb-8">
                         <i class="fas fa-tools text-4xl text-deep-blue mb-4"></i>
                         <h3 class="text-2xl font-bold text-deep-blue">Tools & More</h3>
@@ -532,120 +959,139 @@
                             </div>
                             <div class="skill-progress" style="--progress-width: 90%"></div>
                         </div>
-                     
-                           
-                   
+
+
+
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
 
-    <!-- Experience & Education -->
-    <section id="experience" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    <span class="gradient-text">Experience & Education</span>
+    <!-- Experience & Education - Elegant Timeline -->
+    <section id="experience" class="py-32 bg-gray-50">
+        <div class="container mx-auto px-6 lg:px-12 max-w-7xl">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
+                    Experience & Education
                 </h2>
             </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                 <!-- Experience Timeline -->
-                <div data-aos="fade-right" data-aos-duration="1000">
-                    <h3 class="text-3xl font-bold text-deep-blue mb-8 flex items-center">
-                        <i class="fas fa-briefcase mr-4 text-vibrant-orange"></i>Work Experience
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-12 flex items-center">
+                        <i class="fas fa-briefcase mr-3 text-blue-600"></i>Work Experience
                     </h3>
-                    
-                    <div class="relative pl-10">
+
+                    <div class="relative pl-8">
                         <div class="timeline-line"></div>
-                        
+
                         <!-- Internship 1 -->
-                        <div class="mb-12 relative">
+                        <div class="mb-16 relative timeline-card" data-aos="fade-up" data-aos-duration="600">
                             <div class="timeline-dot"></div>
                             <div class="ml-8">
-                                <div class="bg-gradient-card p-6 rounded-xl">
-                                    <div class="flex justify-between items-start mb-2">
-                                        <h4 class="text-xl font-bold text-deep-blue">Innayam Innovations</h4>
-                                        <span class="bg-orange-100 text-orange-800 text-sm font-bold px-3 py-1 rounded-full">Present</span>
+                                <div
+                                    class="bg-white border-l-4 border-blue-600 border-t border-r border-b border-gray-200 p-8 rounded-2xl shadow-sm">
+                                    <div class="flex justify-between items-start mb-3">
+                                        <h4 class="text-xl font-bold text-gray-900">Innayam Innovations</h4>
+                                        <span
+                                            class="bg-blue-600 text-white text-xs font-semibold px-3 py-1.5 rounded-full">Present</span>
                                     </div>
-                                    <p class="text-gray-600 mb-4">SaaS HR Management System Developer</p>
-                                    <p class="text-gray-700 text-sm leading-relaxed">
-                                        Building Logon - an Employee & HR Management System with secure authentication, role-based access, responsive UI with React & Tailwind, and scalable backend with Node.js, Express, and PostgreSQL.
+                                    <p class="text-gray-600 font-medium mb-4">SaaS HR Management System Developer</p>
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        Building Logon - an Employee & HR Management System with secure authentication,
+                                        role-based access, responsive UI with React & Tailwind, and scalable backend
+                                        with Node.js, Express, and PostgreSQL.
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Internship 2 -->
-                        <div class="mb-12 relative">
+                        <div class="mb-16 relative timeline-card" data-aos="fade-up" data-aos-duration="600"
+                            data-aos-delay="100">
                             <div class="timeline-dot"></div>
                             <div class="ml-8">
-                                <div class="bg-gradient-card p-6 rounded-xl">
-                                    <div class="flex justify-between items-start mb-2">
-                                        <h4 class="text-xl font-bold text-deep-blue">RINL (Vizag Steel Plant)</h4>
-                                        <span class="bg-blue-100 text-blue-800 text-sm font-bold px-3 py-1 rounded-full">2025</span>
+                                <div
+                                    class="bg-white border-l-4 border-blue-500 border-t border-r border-b border-gray-200 p-8 rounded-2xl shadow-sm">
+                                    <div class="flex justify-between items-start mb-3">
+                                        <h4 class="text-xl font-bold text-gray-900">RINL (Vizag Steel Plant)</h4>
+                                        <span
+                                            class="bg-gray-100 text-gray-700 text-xs font-semibold px-3 py-1.5 rounded-full">2025</span>
                                     </div>
-                                    <p class="text-gray-600 mb-4">IT and ERP Intern</p>
-                                    <p class="text-gray-700 text-sm leading-relaxed">
-                                        Worked on core ERP modules (MM & PP), assisted in business process optimization, analyzed system performance, and ensured seamless integration with existing infrastructure.
+                                    <p class="text-gray-600 font-medium mb-4">IT and ERP Intern</p>
+                                    <p class="text-gray-600 text-sm leading-relaxed">
+                                        Worked on core ERP modules (MM & PP), assisted in business process optimization,
+                                        analyzed system performance, and ensured seamless integration with existing
+                                        infrastructure.
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Education Timeline -->
-                <div data-aos="fade-left" data-aos-duration="1000">
-                    <h3 class="text-3xl font-bold text-deep-blue mb-8 flex items-center">
-                        <i class="fas fa-graduation-cap mr-4 text-light-accent"></i>Education
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-12 flex items-center">
+                        <i class="fas fa-graduation-cap mr-3 text-blue-600"></i>Education
                     </h3>
-                    
-                    <div class="relative pl-10">
+
+                    <div class="relative pl-8">
                         <div class="timeline-line"></div>
-                        
+
                         <!-- Education -->
-                        <div class="mb-12 relative">
+                        <div class="mb-16 relative timeline-card" data-aos="fade-up" data-aos-duration="600">
                             <div class="timeline-dot"></div>
                             <div class="ml-8">
-                                <div class="bg-gradient-card p-6 rounded-xl">
-                                    <div class="flex justify-between items-start mb-2">
-                                        <h4 class="text-xl font-bold text-deep-blue">BE Computer Science</h4>
-                                        <span class="bg-deep-blue text-white text-sm font-bold px-3 py-1 rounded-full">2022-2026</span>
+                                <div
+                                    class="bg-white border-l-4 border-blue-600 border-t border-r border-b border-gray-200 p-8 rounded-2xl shadow-sm">
+                                    <div class="flex justify-between items-start mb-3">
+                                        <h4 class="text-xl font-bold text-gray-900">BE Computer Science</h4>
+                                        <span
+                                            class="bg-blue-600 text-white text-xs font-semibold px-3 py-1.5 rounded-full">2022-2026</span>
                                     </div>
-                                    <p class="text-gray-600 mb-4">Sathyabama Institute of Science & Technology</p>
-                                    <p class="text-gray-700 text-sm leading-relaxed">
-                                        Specializing in full stack development, AI/ML applications, and modern web technologies. Currently in final year with focus on real-world project implementation.
+                                    <p class="text-gray-600 font-medium mb-4">Sathyabama Institute of Science &
+                                        Technology</p>
+                                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                        Specializing in full stack development, AI/ML applications, and modern web
+                                        technologies. Currently in final year with focus on real-world project
+                                        implementation.
                                     </p>
-                                    <div class="mt-4 flex flex-wrap gap-2">
-                                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Full Stack Development</span>
-                                        <span class="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full">AI/ML</span>
-                                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Web Technologies</span>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span
+                                            class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full font-medium">Full
+                                            Stack Development</span>
+                                        <span
+                                            class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full font-medium">AI/ML</span>
+                                        <span
+                                            class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full font-medium">Web
+                                            Technologies</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Certifications -->
-                        <div class="mb-12 relative">
+                        <div class="mb-16 relative timeline-card" data-aos="fade-up" data-aos-duration="600"
+                            data-aos-delay="100">
                             <div class="timeline-dot"></div>
                             <div class="ml-8">
-                                <div class="bg-gradient-card p-6 rounded-xl">
-                                    <div class="flex justify-between items-start mb-2">
-                                        <h4 class="text-xl font-bold text-deep-blue">Certifications</h4>
-                                    </div>
+                                <div
+                                    class="bg-white border border-gray-200 p-8 rounded-2xl hover:shadow-lg transition-shadow duration-300">
+                                    <h4 class="text-xl font-bold text-gray-900 mb-6">Certifications</h4>
                                     <div class="space-y-4">
-                                        <div class="flex items-center">
-                                            <i class="fas fa-certificate text-vibrant-orange mr-3"></i>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-certificate text-blue-600 mr-3 mt-1"></i>
                                             <div>
-                                                <p class="font-semibold text-gray-800">Full-Stack Development</p>
+                                                <p class="font-semibold text-gray-900">Full-Stack Development</p>
                                                 <p class="text-gray-600 text-sm">Sathyabama Institute</p>
                                             </div>
                                         </div>
-                                        <div class="flex items-center">
-                                            <i class="fas fa-certificate text-light-accent mr-3"></i>
+                                        <div class="flex items-start">
+                                            <i class="fas fa-certificate text-blue-600 mr-3 mt-1"></i>
                                             <div>
-                                                <p class="font-semibold text-gray-800">Full-Stack Development</p>
+                                                <p class="font-semibold text-gray-900">Full-Stack Development</p>
                                                 <p class="text-gray-600 text-sm">Algox-Fusion</p>
                                             </div>
                                         </div>
@@ -659,129 +1105,219 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    <span class="gradient-text">Featured Projects</span>
+
+    <section id="projects" class="py-32 bg-gradient-to-b from-white to-gray-50">
+        <div class="container mx-auto px-6 lg:px-12 max-w-7xl">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
+                    Selected Work
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Showcasing my most impactful work and innovative solutions
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Real-world systems built with scalability, clean architecture, and user-centered design
                 </p>
             </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Project 1 -->
-                <div data-aos="zoom-in" data-aos-duration="800" class="group">
-                    <div class="bg-gradient-card rounded-2xl overflow-hidden h-full">
-                        <div class="p-8">
-                            <div class="flex items-center mb-6">
-                                <div class="w-3 h-12 bg-vibrant-orange rounded-full mr-4"></div>
-                                <h3 class="text-2xl font-bold text-deep-blue">AI Virtual Classroom</h3>
+
+            <!-- Featured Project -->
+            <div class="project-featured rounded-3xl p-12 mb-20" data-aos="fade-up" data-aos-duration="800">
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+                    <div class="lg:col-span-2">
+                        <div class="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-4">Featured Project
+                        </div>
+                        <h3 class="text-4xl font-bold text-gray-900 mb-6">
+                            Orbit AI Classroom
+                        </h3>
+                        <div class="space-y-4 mb-8">
+                            <div>
+                                <p class="text-sm font-semibold text-gray-700 mb-2">Problem</p>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Traditional online learning lacks engagement tracking and automated attendance
+                                    management.
+                                </p>
                             </div>
-                            <p class="text-gray-700 mb-6 leading-relaxed">
-                                Real-time virtual classroom platform with face-recognition login, live video classes, real-time chat, and automatic attendance tracking.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-8">
-                                <span class="bg-blue-100 text-blue-800 px-3 py-1.5 rounded-full text-sm font-medium">Angular</span>
-                                <span class="bg-green-100 text-green-800 px-3 py-1.5 rounded-full text-sm font-medium">Node.js</span>
-                                <span class="bg-yellow-100 text-yellow-800 px-3 py-1.5 rounded-full text-sm font-medium">MongoDB</span>
-                                <span class="bg-red-100 text-red-800 px-3 py-1.5 rounded-full text-sm font-medium">OpenCV</span>
+                            <div>
+                                <p class="text-sm font-semibold text-gray-700 mb-2">Solution</p>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Built a real-time virtual classroom with face recognition authentication, WebRTC
+                                    live video, emotion analysis, and automated attendance dashboards.
+                                </p>
                             </div>
-                            <div class="flex gap-4">
-                                <button class="text-gray-600 cursor-not-allowed opacity-50">
-                                    <i class="fas fa-hourglass-half mr-2"></i>In Progress
-                                </button>
-                                 <a href="https://orbit-zqsz.vercel.app/" target="_blank" class="text-deep-blue hover:text-vibrant-orange transition-colors">
-                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                                </a>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span
+                                class="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">Angular</span>
+                            <span
+                                class="px-3 py-1.5 bg-green-50 text-green-700 rounded-full text-sm font-medium">Node.js</span>
+                            <span
+                                class="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-sm font-medium">WebRTC</span>
+                            <span
+                                class="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">OpenCV</span>
+                        </div>
+                        <div class="flex gap-6">
+                            <a href="https://orbit-zqsz.vercel.app/" target="_blank"
+                                class="text-blue-600 hover:text-blue-700 transition-colors font-semibold flex items-center gap-2">
+                                Live Demo <span class="text-lg">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Auto-Scrolling Image Carousel -->
+                    <div class="lg:col-span-3">
+                        <div class="relative overflow-hidden rounded-2xl bg-gray-100 shadow-2xl" style="height: 400px;">
+                            <div class="orbit-carousel flex transition-transform duration-700 ease-in-out h-full">
+                                <img src="https://res.cloudinary.com/dnevq4wek/image/upload/v1769101810/Screenshot_2026-01-22_223948_kuc7ft.png"
+                                    alt="Orbit Screenshot 1" class="w-full h-full object-cover flex-shrink-0">
+                                <img src="https://res.cloudinary.com/dnevq4wek/image/upload/v1769101765/Screenshot_2026-01-22_223712_fkvtga.png"
+                                    alt="Orbit Screenshot 2" class="w-full h-full object-cover flex-shrink-0">
+                                <img src="https://res.cloudinary.com/dnevq4wek/image/upload/v1769101940/Screenshot_2026-01-22_224033_bqkf0h.png"
+                                    alt="Orbit Screenshot 3" class="w-full h-full object-cover flex-shrink-0">
+                            </div>
+                            <!-- Carousel Indicators -->
+                            <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2">
+                                <button
+                                    class="orbit-indicator w-2.5 h-2.5 rounded-full bg-white opacity-60 hover:opacity-100 transition-opacity"
+                                    data-index="0"></button>
+                                <button
+                                    class="orbit-indicator w-2.5 h-2.5 rounded-full bg-white opacity-60 hover:opacity-100 transition-opacity"
+                                    data-index="1"></button>
+                                <button
+                                    class="orbit-indicator w-2.5 h-2.5 rounded-full bg-white opacity-60 hover:opacity-100 transition-opacity"
+                                    data-index="2"></button>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Project 2 -->
-                <!-- <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100" class="group">
-                    <div class="bg-gradient-card rounded-2xl overflow-hidden h-full">
-                        <div class="p-8">
-                            <div class="flex items-center mb-6">
-                                <div class="w-3 h-12 bg-light-accent rounded-full mr-4"></div>
-                                <h3 class="text-2xl font-bold text-deep-blue">CropCast - Smart Farming</h3>
-                            </div>
-                            <p class="text-gray-700 mb-6 leading-relaxed">
-                                Smart crop prediction system recommending optimal crops based on soil, climate data, with integrated marketplace for farmers.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-8">
-                                <span class="bg-blue-100 text-blue-800 px-3 py-1.5 rounded-full text-sm font-medium">Angular</span>
-                                <span class="bg-green-100 text-green-800 px-3 py-1.5 rounded-full text-sm font-medium">Node.js</span>
-                                <span class="bg-yellow-100 text-yellow-800 px-3 py-1.5 rounded-full text-sm font-medium">MongoDB</span>
-                                <span class="bg-purple-100 text-purple-800 px-3 py-1.5 rounded-full text-sm font-medium">TypeScript</span>
-                            </div>
-                            <div class="flex gap-4">
-                                <a href="https://github.com/Srikarsanka" target="_blank" class="text-deep-blue hover:text-vibrant-orange transition-colors">
-                                    <i class="fab fa-github mr-2"></i>View Code
-                                </a>
-                            </div>
+            </div>
+
+            <!-- Secondary Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- UDBHAVA -->
+                <div class="project-card-minimal rounded-2xl p-8" data-aos="fade-up" data-aos-duration="600">
+                    <div class="flex items-start mb-6">
+                        <div class="w-1 h-12 bg-blue-600 rounded-full mr-4"></div>
+                        <h3 class="text-2xl font-bold text-gray-900">UDBHAVA E-Commerce</h3>
+                    </div>
+
+                    <!-- Image Carousel -->
+                    <div class="mb-6 relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-50 via-yellow-50 to-red-50 shadow-xl"
+                        style="height: 350px;">
+                        <div class="udbhava-carousel flex transition-transform duration-700 ease-in-out h-full">
+                            <img src="https://res.cloudinary.com/dnevq4wek/image/upload/v1769103548/4b4460b5-fd8a-478d-9b32-c48980d3bd2b.png"
+                                alt="UDBHAVA Screenshot 1" class="w-full h-full object-contain flex-shrink-0 p-4">
+                            <img src="https://res.cloudinary.com/dnevq4wek/image/upload/v1769103569/955a13fc-a4fe-43dc-b836-92a569b16477.png"
+                                alt="UDBHAVA Screenshot 2" class="w-full h-full object-contain flex-shrink-0 p-4">
+                            <img src="https://res.cloudinary.com/dnevq4wek/image/upload/v1769103725/89142630-df9c-4440-92c7-15d0ea7c5fef.png"
+                                alt="UDBHAVA Screenshot 3" class="w-full h-full object-contain flex-shrink-0 p-4">
+                            <img src="https://res.cloudinary.com/dnevq4wek/image/upload/v1769103831/74231624-7ea1-43d5-961e-e84cdf3c7da6.png"
+                                alt="UDBHAVA Screenshot 4" class="w-full h-full object-contain flex-shrink-0 p-4">
+                            <img src="https://res.cloudinary.com/dnevq4wek/image/upload/v1769103924/029beba3-31b0-449e-8f51-e1317d573bc4.png"
+                                alt="UDBHAVA Screenshot 5" class="w-full h-full object-contain flex-shrink-0 p-4">
+                        </div>
+                        <!-- Carousel Indicators -->
+                        <div
+                            class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
+                            <button
+                                class="udbhava-indicator w-2.5 h-2.5 rounded-full bg-orange-600 transition-all hover:scale-125"
+                                data-index="0"></button>
+                            <button
+                                class="udbhava-indicator w-2.5 h-2.5 rounded-full bg-orange-600 transition-all hover:scale-125"
+                                data-index="1"></button>
+                            <button
+                                class="udbhava-indicator w-2.5 h-2.5 rounded-full bg-orange-600 transition-all hover:scale-125"
+                                data-index="2"></button>
+                            <button
+                                class="udbhava-indicator w-2.5 h-2.5 rounded-full bg-orange-600 transition-all hover:scale-125"
+                                data-index="3"></button>
+                            <button
+                                class="udbhava-indicator w-2.5 h-2.5 rounded-full bg-orange-600 transition-all hover:scale-125"
+                                data-index="4"></button>
                         </div>
                     </div>
-                </div> -->
-                
-                <!-- Project 3 -->
-                <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200" class="group">
-                    <div class="bg-gradient-card rounded-2xl overflow-hidden h-full">
-                        <div class="p-8">
-                            <div class="flex items-center mb-6">
-                                <div class="w-3 h-12 bg-deep-blue rounded-full mr-4"></div>
-                                <h3 class="text-2xl font-bold text-deep-blue">UDBHAVA E-Commerce</h3>
-                            </div>
-                            <p class="text-gray-700 mb-6 leading-relaxed">
-                                Responsive e-commerce platform promoting Indian handicrafts with modern UI/UX and secure payment integration.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-8">
-                                <span class="bg-blue-100 text-blue-800 px-3 py-1.5 rounded-full text-sm font-medium">HTML/CSS</span>
-                                <span class="bg-green-100 text-green-800 px-3 py-1.5 rounded-full text-sm font-medium">JavaScript</span>
-                                <span class="bg-yellow-100 text-yellow-800 px-3 py-1.5 rounded-full text-sm font-medium">Node.js</span>
-                                <span class="bg-red-100 text-red-800 px-3 py-1.5 rounded-full text-sm font-medium">MySQL</span>
-                            </div>
-                            <div class="flex gap-4">
-                                <a href="https://github.com/Srikarsanka" target="_blank" class="text-deep-blue hover:text-vibrant-orange transition-colors mr-4">
-                                    <i class="fab fa-github mr-2"></i>View Code
-                                </a>
-                                <a href="https://udbhava.onrender.com/" target="_blank" class="text-deep-blue hover:text-vibrant-orange transition-colors">
-                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                                </a>
-                            </div>
-                        </div>
+
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Full-featured marketplace for Indian handicrafts with advanced filtering, cart management, and
+                        secure authentication. Responsive design optimized for mobile commerce.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">HTML/CSS</span>
+                        <span
+                            class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">JavaScript</span>
+                        <span
+                            class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">Node.js</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">MySQL</span>
+                    </div>
+                    <div class="flex gap-6">
+                        <a href="https://github.com/Srikarsanka" target="_blank"
+                            class="text-gray-700 hover:text-blue-600 transition-colors text-sm font-semibold flex items-center gap-2">
+                            Code <span>→</span>
+                        </a>
+                        <a href="https://udbhava.onrender.com/" target="_blank"
+                            class="text-gray-700 hover:text-blue-600 transition-colors text-sm font-semibold flex items-center gap-2">
+                            Live Demo <span>→</span>
+                        </a>
                     </div>
                 </div>
-                
-                <!-- Project 4 -->
-                <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300" class="group">
-                    <div class="bg-gradient-card rounded-2xl overflow-hidden h-full">
-                        <div class="p-8">
-                            <div class="flex items-center mb-6">
-                                <div class="w-3 h-12 bg-vibrant-orange rounded-full mr-4"></div>
-                                <h3 class="text-2xl font-bold text-deep-blue">Hospital Management</h3>
-                            </div>
-                            <p class="text-gray-700 mb-6 leading-relaxed">
-                                Hospital portal for managing patient records, doctor appointments with intuitive dashboards and secure validation.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-8">
-                                <span class="bg-blue-100 text-blue-800 px-3 py-1.5 rounded-full text-sm font-medium">HTML/CSS</span>
-                                <span class="bg-green-100 text-green-800 px-3 py-1.5 rounded-full text-sm font-medium">JavaScript</span>
-                                <span class="bg-yellow-100 text-yellow-800 px-3 py-1.5 rounded-full text-sm font-medium">PHP</span>
-                                <span class="bg-red-100 text-red-800 px-3 py-1.5 rounded-full text-sm font-medium">MySQL</span>
-                            </div>
-                            <div class="flex gap-4">
-                                <a href="https://github.com/Srikarsanka" target="_blank" class="text-deep-blue hover:text-vibrant-orange transition-colors mr-4">
-                                    <i class="fab fa-github mr-2"></i>View Code
-                                </a>
-                                <a href="https://basavatarakamhospitalwebsite.vercel.app/" target="_blank" class="text-deep-blue hover:text-vibrant-orange transition-colors">
-                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                                </a>
-                            </div>
+
+                <!-- Hospital Management -->
+                <div class="project-card-minimal rounded-2xl p-8" data-aos="fade-up" data-aos-duration="600"
+                    data-aos-delay="100">
+                    <div class="flex items-start mb-6">
+                        <div class="w-1 h-12 bg-blue-600 rounded-full mr-4"></div>
+                        <h3 class="text-2xl font-bold text-gray-900">Hospital Management</h3>
+                    </div>
+
+                    <!-- Image Carousel -->
+                    <div class="mb-6 relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 shadow-xl"
+                        style="height: 350px;">
+                        <div class="hospital-carousel flex transition-transform duration-700 ease-in-out h-full">
+                            <img src="https://res.cloudinary.com/dnevq4wek/image/upload/v1769104633/ac6fcd55-0f4b-4ccd-ae2a-24f6556155a8.png"
+                                alt="Hospital Screenshot 1" class="w-full h-full object-contain flex-shrink-0 p-4">
+                            <img src="https://res.cloudinary.com/dnevq4wek/image/upload/v1769104680/c00c4154-e134-47ec-b761-82170a051aba.png"
+                                alt="Hospital Screenshot 2" class="w-full h-full object-contain flex-shrink-0 p-4">
+                            <img src="https://res.cloudinary.com/dnevq4wek/image/upload/v1769104589/ca8c5a39-2558-4253-94cf-eda709dbe7f8.png"
+                                alt="Hospital Screenshot 3" class="w-full h-full object-contain flex-shrink-0 p-4">
+                            <img src="https://res.cloudinary.com/dnevq4wek/image/upload/v1769105723/c2850a90-1805-4560-940e-09cf59567c05.png"
+                                alt="Hospital Screenshot 4" class="w-full h-full object-contain flex-shrink-0 p-4">
                         </div>
+                        <!-- Carousel Indicators -->
+                        <div
+                            class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
+                            <button
+                                class="hospital-indicator w-2.5 h-2.5 rounded-full bg-green-600 transition-all hover:scale-125"
+                                data-index="0"></button>
+                            <button
+                                class="hospital-indicator w-2.5 h-2.5 rounded-full bg-green-600 transition-all hover:scale-125"
+                                data-index="1"></button>
+                            <button
+                                class="hospital-indicator w-2.5 h-2.5 rounded-full bg-green-600 transition-all hover:scale-125"
+                                data-index="2"></button>
+                            <button
+                                class="hospital-indicator w-2.5 h-2.5 rounded-full bg-green-600 transition-all hover:scale-125"
+                                data-index="3"></button>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Comprehensive healthcare platform with secure patient record management, appointment scheduling,
+                        and role-based access control for doctors and administrators.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span
+                            class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">HTML/CSS</span>
+                        <span
+                            class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">JavaScript</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">PHP</span>
+                        <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">MySQL</span>
+                    </div>
+                    <div class="flex gap-6">
+                        <a href="https://github.com/Srikarsanka" target="_blank"
+                            class="text-gray-700 hover:text-blue-600 transition-colors text-sm font-semibold flex items-center gap-2">
+                            Code <span>→</span>
+                        </a>
+                        <a href="https://basavatarakamhospitalwebsite.vercel.app/" target="_blank"
+                            class="text-gray-700 hover:text-blue-600 transition-colors text-sm font-semibold flex items-center gap-2">
+                            Live Demo <span>→</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -800,7 +1336,7 @@
                         Ready to bring your ideas to life? Let's create something amazing together!
                     </p>
                 </div>
-                
+
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     <!-- Contact Info -->
                     <div data-aos="fade-right" data-aos-duration="1000">
@@ -808,27 +1344,33 @@
                             <h3 class="text-2xl font-bold text-deep-blue mb-8">Get In Touch</h3>
                             <div class="space-y-6">
                                 <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-deep-blue rounded-full flex items-center justify-center mr-4">
+                                    <div
+                                        class="w-12 h-12 bg-deep-blue rounded-full flex items-center justify-center mr-4">
                                         <i class="fas fa-envelope text-white text-xl"></i>
                                     </div>
                                     <div>
                                         <p class="font-semibold text-gray-800">Email</p>
-                                        <a href="mailto:sankasrikar@gmail.com" class="text-gray-600 hover:text-vibrant-orange transition-colors">sankasrikar@gmail.com</a>
+                                        <a href="mailto:sankasrikar@gmail.com"
+                                            class="text-gray-600 hover:text-vibrant-orange transition-colors">sankasrikar@gmail.com</a>
                                     </div>
                                 </div>
-                                
+
                                 <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-vibrant-orange rounded-full flex items-center justify-center mr-4">
+                                    <div
+                                        class="w-12 h-12 bg-vibrant-orange rounded-full flex items-center justify-center mr-4">
                                         <i class="fas fa-phone text-white text-xl"></i>
                                     </div>
                                     <div>
                                         <p class="font-semibold text-gray-800">Phone</p>
-                                        <a href="tel:8639157722" class="text-gray-600 hover:text-vibrant-orange transition-colors">+91 86391 57722</a>
+                                        <a href="tel:8639157722"
+                                            class="text-gray-600 hover:text-vibrant-orange transition-colors">+91 86391
+                                            57722</a>
                                     </div>
                                 </div>
-                                
+
                                 <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-light-accent rounded-full flex items-center justify-center mr-4">
+                                    <div
+                                        class="w-12 h-12 bg-light-accent rounded-full flex items-center justify-center mr-4">
                                         <i class="fas fa-map-marker-alt text-white text-xl"></i>
                                     </div>
                                     <div>
@@ -837,52 +1379,54 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="mt-12">
                                 <h4 class="text-xl font-bold text-deep-blue mb-6">Connect with me</h4>
                                 <div class="flex space-x-6">
-                                    <a href="https://github.com/Srikarsanka" target="_blank" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-deep-blue hover:text-white transition-all duration-300">
+                                    <a href="https://github.com/Srikarsanka" target="_blank"
+                                        class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-deep-blue hover:text-white transition-all duration-300">
                                         <i class="fab fa-github text-xl"></i>
                                     </a>
-                                    <a href="https://linkedin.com/in/srikar-sanka-987104294" target="_blank" class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300">
+                                    <a href="https://linkedin.com/in/srikar-sanka-987104294" target="_blank"
+                                        class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300">
                                         <i class="fab fa-linkedin-in text-xl"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Contact Form -->
                     <div data-aos="fade-left" data-aos-duration="1000">
                         <div class="bg-gradient-card rounded-2xl p-8">
                             <form id="contact-form" class="space-y-6">
                                 <input type="hidden" name="access_key" value="a59f1daa-b5fe-4abe-a42c-9d1bcee8afa2">
-                                
+
                                 <div>
-                                    <input type="text" name="name" placeholder="Your Name" required 
-                                           class="w-full p-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-deep-blue transition-all duration-300">
+                                    <input type="text" name="name" placeholder="Your Name" required
+                                        class="w-full p-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-deep-blue transition-all duration-300">
                                 </div>
-                                
+
                                 <div>
-                                    <input type="email" name="email" placeholder="Your Email" required 
-                                           class="w-full p-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-deep-blue transition-all duration-300">
+                                    <input type="email" name="email" placeholder="Your Email" required
+                                        class="w-full p-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-deep-blue transition-all duration-300">
                                 </div>
-                                
+
                                 <div>
-                                    <input type="text" name="subject" placeholder="Subject" 
-                                           class="w-full p-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-deep-blue transition-all duration-300">
+                                    <input type="text" name="subject" placeholder="Subject"
+                                        class="w-full p-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-deep-blue transition-all duration-300">
                                 </div>
-                                
+
                                 <div>
-                                    <textarea name="message" rows="5" placeholder="Your Message" required 
-                                              class="w-full p-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-deep-blue transition-all duration-300 resize-none"></textarea>
+                                    <textarea name="message" rows="5" placeholder="Your Message" required
+                                        class="w-full p-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-deep-blue transition-all duration-300 resize-none"></textarea>
                                 </div>
-                                
+
                                 <button type="submit" class="w-full btn-glow py-4 rounded-xl text-lg font-semibold">
                                     <i class="fas fa-paper-plane mr-2"></i>Send Message
                                 </button>
                             </form>
-                            
+
                             <div id="form-result" class="mt-6 text-center"></div>
                         </div>
                     </div>
@@ -899,13 +1443,16 @@
                 Full Stack Developer passionate about creating meaningful digital experiences and innovative solutions.
             </p>
             <div class="flex justify-center space-x-6 mb-8">
-                <a href="https://github.com/Srikarsanka" target="_blank" class="text-gray-300 hover:text-white text-2xl transition-colors">
+                <a href="https://github.com/Srikarsanka" target="_blank"
+                    class="text-gray-300 hover:text-white text-2xl transition-colors">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://linkedin.com/in/srikar-sanka-987104294" target="_blank" class="text-gray-300 hover:text-white text-2xl transition-colors">
+                <a href="https://linkedin.com/in/srikar-sanka-987104294" target="_blank"
+                    class="text-gray-300 hover:text-white text-2xl transition-colors">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="mailto:sankasrikar@gmail.com" class="text-gray-300 hover:text-white text-2xl transition-colors">
+                <a href="mailto:sankasrikar@gmail.com"
+                    class="text-gray-300 hover:text-white text-2xl transition-colors">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
@@ -915,7 +1462,7 @@
 
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+
     <script>
         // Initialize AOS
         AOS.init({
@@ -923,18 +1470,18 @@
             once: true,
             offset: 100
         });
-        
+
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
-        
+
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            menuBtn.innerHTML = mobileMenu.classList.contains('hidden') 
-                ? '<i class="fas fa-bars"></i>' 
+            menuBtn.innerHTML = mobileMenu.classList.contains('hidden')
+                ? '<i class="fas fa-bars"></i>'
                 : '<i class="fas fa-times"></i>';
         });
-        
+
         // Close mobile menu when clicking links
         document.querySelectorAll('#mobileMenu a').forEach(link => {
             link.addEventListener('click', () => {
@@ -942,7 +1489,7 @@
                 menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
-        
+
         // Navbar background on scroll
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
@@ -952,24 +1499,24 @@
                 nav.classList.remove('shadow-lg');
             }
         });
-        
+
         // Contact Form Submission
         const contactForm = document.getElementById('contact-form');
         const resultDiv = document.getElementById('form-result');
-        
+
         if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
+            contactForm.addEventListener('submit', function (e) {
                 e.preventDefault();
                 const submitBtn = contactForm.querySelector('button[type="submit"]');
-                
+
                 resultDiv.innerHTML = '<div class="text-blue-500"><i class="fas fa-spinner fa-spin mr-2"></i>Sending message...</div>';
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
-                
+
                 const formData = new FormData(contactForm);
                 const object = Object.fromEntries(formData);
                 const json = JSON.stringify(object);
-                
+
                 fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
                     headers: {
@@ -978,35 +1525,176 @@
                     },
                     body: json
                 })
-                .then(async (response) => {
-                    let jsonResponse = await response.json();
-                    if (response.status == 200) {
-                        resultDiv.innerHTML = '<div class="text-green-500"><i class="fas fa-check-circle mr-2"></i>Message sent successfully!</div>';
-                    } else {
-                        resultDiv.innerHTML = `<div class="text-red-500"><i class="fas fa-exclamation-circle mr-2"></i>${jsonResponse.message}</div>`;
-                    }
-                })
-                .catch(error => {
-                    resultDiv.innerHTML = '<div class="text-red-500"><i class="fas fa-exclamation-circle mr-2"></i>Something went wrong. Please try again.</div>';
-                })
-                .then(function() {
-                    contactForm.reset();
-                    setTimeout(() => {
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';
-                        resultDiv.innerHTML = '';
-                    }, 3000);
-                });
+                    .then(async (response) => {
+                        let jsonResponse = await response.json();
+                        if (response.status == 200) {
+                            resultDiv.innerHTML = '<div class="text-green-500"><i class="fas fa-check-circle mr-2"></i>Message sent successfully!</div>';
+                        } else {
+                            resultDiv.innerHTML = `<div class="text-red-500"><i class="fas fa-exclamation-circle mr-2"></i>${jsonResponse.message}</div>`;
+                        }
+                    })
+                    .catch(error => {
+                        resultDiv.innerHTML = '<div class="text-red-500"><i class="fas fa-exclamation-circle mr-2"></i>Something went wrong. Please try again.</div>';
+                    })
+                    .then(function () {
+                        contactForm.reset();
+                        setTimeout(() => {
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';
+                            resultDiv.innerHTML = '';
+                        }, 3000);
+                    });
             });
         }
-        
+
+        // Video/Image Layering Interaction
+        const projectMediaContainers = document.querySelectorAll('.project-media-container');
+        projectMediaContainers.forEach(container => {
+            const video = container.querySelector('.project-video');
+            if (video) {
+                container.addEventListener('mouseenter', () => {
+                    video.play().catch(e => console.log('Video play failed:', e));
+                });
+
+                container.addEventListener('mouseleave', () => {
+                    video.pause();
+                    video.currentTime = 0;
+                });
+            }
+        });
+
+        // Hospital Management Image Carousel
+        const hospitalCarousel = document.querySelector('.hospital-carousel');
+        const hospitalIndicators = document.querySelectorAll('.hospital-indicator');
+        let currentHospitalSlide = 0;
+        const totalHospitalSlides = 4;
+
+        function showHospitalSlide(index) {
+            currentHospitalSlide = index;
+            const offset = -index * 100;
+            hospitalCarousel.style.transform = `translateX(${offset}%)`;
+
+            // Update indicators
+            hospitalIndicators.forEach((indicator, i) => {
+                if (i === index) {
+                    indicator.style.opacity = '1';
+                } else {
+                    indicator.style.opacity = '0.5';
+                }
+            });
+        }
+
+        // Auto-rotate carousel every 3 seconds
+        setInterval(() => {
+            currentHospitalSlide = (currentHospitalSlide + 1) % totalHospitalSlides;
+            showHospitalSlide(currentHospitalSlide);
+        }, 3000);
+
+        // Manual indicator click
+        hospitalIndicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                showHospitalSlide(index);
+            });
+        });
+
+        // Initialize first indicator
+        if (hospitalIndicators.length > 0) {
+            hospitalIndicators[0].style.opacity = '1';
+        }
+
+        // Orbit Project Image Carousel
+        const orbitCarousel = document.querySelector('.orbit-carousel');
+        const orbitIndicators = document.querySelectorAll('.orbit-indicator');
+        let currentOrbitSlide = 0;
+        const totalOrbitSlides = 3;
+
+        function showOrbitSlide(index) {
+            currentOrbitSlide = index;
+            const offset = -index * 100;
+            if (orbitCarousel) {
+                orbitCarousel.style.transform = `translateX(${offset}%)`;
+            }
+
+            // Update indicators
+            orbitIndicators.forEach((indicator, i) => {
+                if (i === index) {
+                    indicator.style.opacity = '1';
+                } else {
+                    indicator.style.opacity = '0.6';
+                }
+            });
+        }
+
+        // Auto-rotate Orbit carousel every 3 seconds
+        if (orbitCarousel) {
+            setInterval(() => {
+                currentOrbitSlide = (currentOrbitSlide + 1) % totalOrbitSlides;
+                showOrbitSlide(currentOrbitSlide);
+            }, 3000);
+
+            // Manual indicator click
+            orbitIndicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    showOrbitSlide(index);
+                });
+            });
+
+            // Initialize first indicator
+            if (orbitIndicators.length > 0) {
+                orbitIndicators[0].style.opacity = '1';
+            }
+        }
+
+        // UDBHAVA E-Commerce Image Carousel
+        const udbhavaCarousel = document.querySelector('.udbhava-carousel');
+        const udbhavaIndicators = document.querySelectorAll('.udbhava-indicator');
+        let currentUdbhavaSlide = 0;
+        const totalUdbhavaSlides = 5;
+
+        function showUdbhavaSlide(index) {
+            currentUdbhavaSlide = index;
+            const offset = -index * 100;
+            if (udbhavaCarousel) {
+                udbhavaCarousel.style.transform = `translateX(${offset}%)`;
+            }
+
+            // Update indicators
+            udbhavaIndicators.forEach((indicator, i) => {
+                if (i === index) {
+                    indicator.style.opacity = '1';
+                } else {
+                    indicator.style.opacity = '0.6';
+                }
+            });
+        }
+
+        // Auto-rotate UDBHAVA carousel every 3 seconds
+        if (udbhavaCarousel) {
+            setInterval(() => {
+                currentUdbhavaSlide = (currentUdbhavaSlide + 1) % totalUdbhavaSlides;
+                showUdbhavaSlide(currentUdbhavaSlide);
+            }, 3000);
+
+            // Manual indicator click
+            udbhavaIndicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    showUdbhavaSlide(index);
+                });
+            });
+
+            // Initialize first indicator
+            if (udbhavaIndicators.length > 0) {
+                udbhavaIndicators[0].style.opacity = '1';
+            }
+        }
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
+
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
@@ -1018,4 +1706,5 @@
         });
     </script>
 </body>
+
 </html>
