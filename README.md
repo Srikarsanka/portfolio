@@ -2,7 +2,7 @@
 <!-- ================= HEADER ================= -->
 
 <h1 align="center">
-  <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=36&center=true&vCenter=true&width=750&height=70&duration=3000&pause=1000&color=00F7FF&lines=Hi+👋+I'm+Srikar+Sanka;Full+Stack+Developer;Angular+%7C+Python+%7C+System+Design;AI+Integrated+Web+Applications;Future+Product+Engineer+🚀" />
+  <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=36&center=true&vCenter=true&width=750&height=70&duration=3000&pause=1000&color=00F7FF&lines=Hi+👋+I'm+Srikar+Sanka;Full+Stack+Developer;Angular+%7C+Python+%7C+System+Design;AI+Integrated+Web+Applications;Future+Product+Engineer+" />
 </h1>
 
 <h3 align="center">Building scalable web systems from Chennai 🇮🇳</h3>
